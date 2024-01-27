@@ -21,5 +21,5 @@ jobs:
           set -e
           for file in *.yml
           do
-            curl --silent --fail-with-body -X POST --data-binary "@$file" https://$cluster_api_login:$cluster_api_password@c2.krato.cz/deploy/"${file%.*}"
+            curl --silent --fail-with-body -X POST --data-binary "@$file" https://$cluster_api_login:$cluster_api_password@c2.krato.cz/deploy/"misc_${file%.*}"
           done
