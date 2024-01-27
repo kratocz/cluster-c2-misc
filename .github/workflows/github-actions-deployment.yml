@@ -7,8 +7,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: "Call API"
-      - uses: actions/github-script@v7
-        id: my-script
-        with:
-          script: |
-            ls -lh *.yml
+        run: |
+          ls -lh *.yml
