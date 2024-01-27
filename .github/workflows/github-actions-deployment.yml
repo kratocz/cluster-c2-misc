@@ -1,13 +1,18 @@
 name: Deployment to the cluster
 
-on: [push]
+on:
+  schedule:
+    - cron: '45 17 * * *'
+  push:
+    branches: [ "main" ]
 jobs:
   deploy:
     name: "Deploy"
     runs-on: ubuntu-latest
     steps:
-      - name: "Call API"
-        run: |
-          pwd
-          ls -lh
-          ls -lh *.yml
+      - name: "Call the cluster API"
+        run: pwd
+      - name: "Call the cluster API"
+        run: ls -lha
+      - name: "Call the cluster API"
+        run: ls -lha *.yml
