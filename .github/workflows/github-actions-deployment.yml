@@ -1,11 +1,13 @@
-name: Example of cURL action
+name: Deployment to the cluster
 
 on: [push]
 jobs:
-  test-curl-action:
-    name: "Perform REST API request"
+  deploy:
+    name: "Deploy"
     runs-on: ubuntu-latest
     steps:
       - name: "Call API"
         run: |
+          pwd
+          ls -lh
           ls -lh *.yml
