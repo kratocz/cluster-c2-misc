@@ -18,6 +18,7 @@ jobs:
           cluster_api_login: ${{ secrets.cluster_api_login }}
           cluster_api_password: ${{ secrets.cluster_api_password }}
         run: |
+          set -e
           for file in *.yml
           do
             curl --silent --fail-with-body -X POST --data-binary "@$file" https://$cluster_api_login:$cluster_api_password@c2.krato.cz/deploy/"${file%.*}"
