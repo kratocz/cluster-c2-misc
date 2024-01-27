@@ -1,0 +1,14 @@
+name: Example of cURL action
+
+on: [push]
+jobs:
+  test-curl-action:
+    name: "Perform REST API request"
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Call API"
+      - uses: actions/github-script@v7
+        id: my-script
+        with:
+          script: |
+            ls -lh *.yml
