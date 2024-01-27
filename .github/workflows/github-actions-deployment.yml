@@ -13,8 +13,8 @@ jobs:
       - name: Check out the repo
         uses: actions/checkout@v3
       - name: "Call the cluster API"
-        run: pwd
-      - name: "Call the cluster API"
-        run: ls -lha
-      - name: "Call the cluster API"
-        run: ls -lha *.yml
+        run: |
+          for file in *.yml
+          do
+            echo curl -X POST --data-binary "$file" https://$cluster_api_login:$cluster_api_password@c2.krato.cz/deploy/"${file%.*}"
+          done
