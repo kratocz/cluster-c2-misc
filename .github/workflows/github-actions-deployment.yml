@@ -13,8 +13,12 @@ jobs:
       - name: Check out the repo
         uses: actions/checkout@v3
       - name: "Call the cluster API"
+        shell: bash
+        env:
+          cluster_api_login: ${{ secrets.cluster_api_login }}
+          cluster_api_password: ${{ secrets.cluster_api_password }}
         run: |
           for file in *.yml
           do
-            echo curl -X POST --data-binary "$file" https://$cluster_api_login:$cluster_api_password@c2.krato.cz/deploy/"${file%.*}"
+            curl -X POST --data-binary "$file" https://$cluster_api_login:$cluster_api_password@c2.krato.cz/deploy/"${file%.*}"
           done
