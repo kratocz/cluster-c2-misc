@@ -10,6 +10,8 @@ jobs:
     name: "Deploy"
     runs-on: ubuntu-latest
     steps:
+      - name: Check out the repo
+        uses: actions/checkout@v3
       - name: "Call the cluster API"
         run: pwd
       - name: "Call the cluster API"
