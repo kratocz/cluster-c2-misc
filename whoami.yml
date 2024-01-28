@@ -5,7 +5,6 @@ services:
     image: traefik/whoami
     ports:
       - "8001:80"
-      - "[::]:8001:80"
     deploy:
       mode: replicated
       replicas: 2
